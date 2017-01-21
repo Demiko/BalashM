@@ -27,7 +27,6 @@ def balash_mod(c: list, a: list, b: list) -> (list, float, int):
         raise ValueError
     minc = min(c)
     p = [sum(b[i] - a[i][j] for i in range(m)) * (c[j] / minc) for j in range(n)]
-    # [sum(b[i]-a[i][j] for i in range(m))*math.sqrt(c[j]/minc) for j in range(n)]
     p = [(p, i) for p, i in zip(p, range(n))]
     p.sort(reverse=True)
     px = [i for p, i in p]
