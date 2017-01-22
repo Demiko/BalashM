@@ -2,16 +2,14 @@
 
 
 def mod(c,a,b):
+    def prio_mod(c, a, b):
+        m = len(b)
+        n = len(c)
+        p = [sum(b[i] - a[i][j] for i in range(m)) * c[j] for j in range(n)]
+        p = [(p, i) for p, i in zip(p, range(n))]
+        p.sort(reverse=True)
+        return [i for _, i in p]
     return mod_balas(c,a,b,prio_mod)
-
-
-def prio_mod(c,a,b):
-    m = len(b)
-    n = len(c)
-    p = [sum(b[i] - a[i][j] for i in range(m)) * c[j] for j in range(n)]
-    p = [(p, i) for p, i in zip(p, range(n))]
-    p.sort(reverse=True)
-    return [i for _, i in p]
 
 
 def mod_balas(c: list, a: list, b: list, prio_compute) -> (list, float, int):
