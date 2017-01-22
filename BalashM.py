@@ -1,7 +1,7 @@
 # coding=utf-8
 
 
-def balash_mod(c: list, a: list, b: list) -> (list, float, int):
+def mod(c: list, a: list, b: list) -> (list, float, int):
     """
     :param c: list
     :param a: list
