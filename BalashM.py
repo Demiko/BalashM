@@ -1,11 +1,25 @@
 # coding=utf-8
 
 
-def mod(c: list, a: list, b: list) -> (list, float, int):
+def mod(c,a,b):
+    return mod_balas(c,a,b,prio_mod)
+
+
+def prio_mod(c,a,b):
+    m = len(b)
+    n = len(c)
+    p = [sum(b[i] - a[i][j] for i in range(m)) * c[j] for j in range(n)]
+    p = [(p, i) for p, i in zip(p, range(n))]
+    p.sort(reverse=True)
+    return [i for _, i in p]
+
+
+def mod_balas(c: list, a: list, b: list, prio_compute) -> (list, float, int):
     """
     :param c: list
     :param a: list
     :param b: list
+    :param prio_compute: function
     :return: (list, float, int)
     """
     m = len(b)
@@ -25,10 +39,7 @@ def mod(c: list, a: list, b: list) -> (list, float, int):
     if any(b <= 0 for b in b):
         print('B must be positive')
         raise ValueError
-    p = [sum(b[i] - a[i][j] for i in range(m)) * c[j] for j in range(n)]
-    p = [(p, i) for p, i in zip(p, range(n))]
-    p.sort(reverse=True)
-    px = [i for p, i in p]
+    px = prio_compute(c,a,b)
     x = buildvar(px, a, b)
     z = sum(c[j] for j in range(n) if x[j] == 1)
     pz = [j for j in range(n) if x[j] == 0]
