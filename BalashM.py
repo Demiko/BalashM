@@ -63,7 +63,7 @@ def buildvar(ind: list, a: list, b: list, x: list = None) -> list:
     for j in ind:
         if x[j] == 1:
             continue
-        if not any(b < 0 for b in ((b[i] - a[i][j]) for i in range(len(b)))):  # because often it's false.
+        b = [(b[i] - a[i][j]) for i in range(len(b))]
+        if all(b >= 0 for b in b):
             x[j] = 1
-            b = [(b[i] - a[i][j]) for i in range(len(b))]
     return x
