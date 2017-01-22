@@ -39,7 +39,7 @@ def mod(c: list, a: list, b: list) -> (list, float, int):
         xn = [0] * n
         xn[k] = 1
         bk = [(b[i] - a[i][k]) for i in range(m)]
-        if not any(b[i] - a[i][j] >= 0 for j in range(n) if j != k for i in range(m)):
+        if all(b[i] - a[i][j] < 0 for j in range(n) if j != k for i in range(m)):
             continue
         xn = buildvar(px, a, bk, xn)
         zn = sum(c[j] * xn[j] for j in range(n))
