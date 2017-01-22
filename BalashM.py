@@ -1,7 +1,7 @@
 # coding=utf-8
 
 
-def mod(c,a,b):
+def mod(c, a, b):
     def prio_mod(c, a, b):
         m = len(b)
         n = len(c)
@@ -9,10 +9,11 @@ def mod(c,a,b):
         p = [(p, i) for p, i in zip(p, range(n))]
         p.sort(reverse=True)
         return [i for _, i in p]
-    return mod_balas(c,a,b,prio_mod)
+
+    return mod_balas(c, a, b, prio_mod)
 
 
-def greed(c,a,b):
+def greed(c, a, b):
     def prio_greed(c, a, b):
         m = len(b)
         n = len(c)
@@ -20,7 +21,8 @@ def greed(c,a,b):
         p = [(p, i) for p, i in zip(p, range(n))]
         p.sort(reverse=True)
         return [i for _, i in p]
-    return mod_balas(c,a,b,prio_greed)
+
+    return mod_balas(c, a, b, prio_greed)
 
 
 def my(c, a, b):
@@ -31,7 +33,9 @@ def my(c, a, b):
         p = [(p, i) for p, i in zip(p, range(n))]
         p.sort(reverse=True)
         return [i for _, i in p]
-    return mod_balas(c,a,b,prio_my)
+
+    return mod_balas(c, a, b, prio_my)
+
 
 def mod_balas(c: list, a: list, b: list, prio_compute) -> (list, float, int):
     """
@@ -58,7 +62,7 @@ def mod_balas(c: list, a: list, b: list, prio_compute) -> (list, float, int):
     if any(b <= 0 for b in b):
         print('B must be positive')
         raise ValueError
-    px = prio_compute(c,a,b)
+    px = prio_compute(c, a, b)
     x = buildvar(px, a, b)
     z = sum(c[j] for j in range(n) if x[j] == 1)
     pz = [j for j in range(n) if x[j] == 0]
