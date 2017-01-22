@@ -25,8 +25,7 @@ def mod(c: list, a: list, b: list) -> (list, float, int):
     if any(b <= 0 for b in b):
         print('B must be positive')
         raise ValueError
-    minc = min(c)
-    p = [sum(b[i] - a[i][j] for i in range(m)) * (c[j] / minc) for j in range(n)]
+    p = [sum(b[i] - a[i][j] for i in range(m)) * c[j] for j in range(n)]
     p = [(p, i) for p, i in zip(p, range(n))]
     p.sort(reverse=True)
     px = [i for p, i in p]
