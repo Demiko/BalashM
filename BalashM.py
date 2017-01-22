@@ -23,6 +23,16 @@ def greed(c,a,b):
     return mod_balas(c,a,b,prio_greed)
 
 
+def my(c, a, b):
+    def prio_my(c, a, b):
+        m = len(b)
+        n = len(c)
+        p = [c[j] / sum(a[i][j] / b[i] for i in range(m)) for j in range(n)]
+        p = [(p, i) for p, i in zip(p, range(n))]
+        p.sort(reverse=True)
+        return [i for _, i in p]
+    return mod_balas(c,a,b,prio_my)
+
 def mod_balas(c: list, a: list, b: list, prio_compute) -> (list, float, int):
     """
     :param c: list
