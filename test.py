@@ -4,7 +4,7 @@
 import cProfile
 from random import randint as randi
 
-from BalashM import balash_mod
+from BalashM import mod
 
 #  тестовая задача из статьи
 c = [4, 7, 2, 1, 3, 5]
@@ -21,8 +21,8 @@ a = [[]] * m
 for i in range(len(a)):
     a[i] = [randi(1,5) for i in range(n)]
 b = [randi(n, 3*n) for i in range(m)]
-x, z, iters = balash_mod(c, a, b)
-cProfile.run('balash_mod(c, a, b)', sort='tottime')
+x, z, iters = mod(c, a, b)
+cProfile.run('mod(c, a, b)', sort='tottime')
 print('C =', c)
 print('\nB =', b)
 print('\nA =')
