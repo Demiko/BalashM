@@ -99,7 +99,15 @@ def buildvar(ind: list, a: list, b: list, x: list = None) -> list:
     for j in ind:
         if x[j] == 1:
             continue
-        b = [(b[i] - a[i][j]) for i in range(len(b))]
-        if all(b >= 0 for b in b):
+        b1 = []
+        ok = True
+        for i in range(len(b)):
+            _b = b[i] - a[i][j]
+            if _b < 0:
+                ok = False
+                break
+            b1.append(_b)
+        if ok:
             x[j] = 1
+            b = b1
     return x
