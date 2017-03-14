@@ -3,7 +3,7 @@
 from BalashM import mod_balas
 
 
-def ant(c, a, b):
+def ant(c, a, b, do_iterations=True):
     def prio_ant(c: list, a: list, b: list) -> (list, float, int):
         b = b.copy()
         px = [0] * len(c)
@@ -29,4 +29,4 @@ def ant(c, a, b):
                 b -= a[i]
         return x
 
-    return mod_balas(c, a, b, prio_ant)
+    return mod_balas(c, a, b, prio_ant, do_iterations)
