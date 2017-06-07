@@ -1,5 +1,5 @@
 from random import randint as randi
-import BalashM, Balas, Ant
+import BalashM, Balas
 
 
 def generate_task(m,n,c,a):
@@ -15,7 +15,7 @@ for i in range(1,1000):
     (c,a,b) = generate_task(10,20,[1,10],[1,10])
     x1,z1,_ = BalashM.greed(c,a,b,False)
     x2,z2,_ = BalashM.mod(c,a,b,False)
-    x3,z3,_ = Ant.ant(c,a,b,False)
+    x3,z3,_ = BalashM.ant(c,a,b,False)
     x,z,_ = Balas.balas(c,a,b)
     if z1==z2==z3:
         if z1==z:

@@ -5,7 +5,7 @@ from sys import stdout
 from random import randint as randi
 from BalashM import greed
 from BalashM import mod
-from Ant import ant
+from BalashM import ant
 from Balas import balas
 
 n = 50
