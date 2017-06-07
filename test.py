@@ -68,7 +68,7 @@ with open('table_%dx%d.tsv' % (m, n), mode='w') as f:
             _, z3, _ = ant(c1, a, b)
             f1.write('%d\t' % z3)
             
-            if n <= 100:
+            if n <= 30:
                 _, z4, _ = balas(c, a, b)
                 f.write('%d\t' % z4)
                 _, z4, _ = balas(c1, a, b)
